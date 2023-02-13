@@ -1,8 +1,13 @@
-###Tutorial for intercepting 2nd keyboard:
+### Tutorial for intercepting 2nd keyboard:
+
 https://www.youtube.com/watch?v=gZxebHjsXyw
 
-###Used libraries:
-######Lib/Interception
+### Used libraries:
+
+###### Lib/Interception
+
 https://github.com/oblitum/Interception
-######Lib/AutoHotInterception
+
+###### Lib/AutoHotInterception
+
 https://github.com/evilC/AutoHotInterception

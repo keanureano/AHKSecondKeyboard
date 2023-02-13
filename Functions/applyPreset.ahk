@@ -11,11 +11,9 @@
 
     ; stops timeline from playing
     SendInput, ^!+k
-    Sleep, 10
     SendInput, ^!+k
-    Sleep, 5
     SendInput, {mButton}
-    Sleep, 5
+    Sleep, 10
 
     ; selects searchbox from effects panel
     focusPanel("effects")
@@ -48,21 +46,19 @@
 
     ; types in preset
     SendInput, %preset%
-    Sleep, 5
 
     ; moves mouse to preset icon
     MouseGetPos, IconX, IconY, Window, ClassNN
     WinGetClass, Class, ahk_id%Window%
     MouseMove, 40, 60, 0, R
+    Sleep, 5
 
     ; repositions mouse
     MouseGetPos, IconX, IconY, Window, ClassNN
     WinGetClass, Class, ahk_id %Window%
     ControlGetPos, CurrentX, CurrentY, CurrentWidth, CurrentHeight, %ClassNN%, ahk_class %Class%, SubWindow, SubWindow
     MouseMove, CurrentWidth/4, CurrentHeight/2, 0, R
-    Sleep, 5
     MouseClick, Left, , , 1
-    Sleep, 5
     MouseMove, IconX, IconY, 0
     Sleep, 5
 

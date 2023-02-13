@@ -25,11 +25,11 @@ KeyEvent(code, state)
         Case "num2":
             applyPreset("jumpzoom120")
         Case "num3":
-            applyPreset("jumpzoom140")
+            applyPreset("jumpzoom130")
         Case "num4":
-            applyPreset("slowzoom105")
-        Case "num5":
             applyPreset("slowzoom110")
+        Case "num5":
+            applyPreset("slowzoom115")
         Case "num6":
             applyPreset("slowzoom120")
         Case "num7":
@@ -37,7 +37,7 @@ KeyEvent(code, state)
         Case "num8":
             applyPreset("fastzoom120")
         Case "num9":
-            applyPreset("fastzoom140")
+            applyPreset("fastzoom130")
         Case "num0":
             focusPanel("controls")
         }

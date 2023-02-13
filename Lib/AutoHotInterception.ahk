@@ -262,3 +262,222 @@ class AutoHotInterception {
 		}
 	}
 }
+
+GetKeyPress(code, state) {
+	if (state = 0) {
+		return ""
+	}
+	switch (code) {
+	case 82:
+		key := "num0"
+	case 79:
+		key := "num1"
+	case 80:
+		key := "num2"
+	case 81:
+		key := "num3"
+	case 75:
+		key := "num4"
+	case 76:
+		key := "num5"
+	case 77:
+		key := "num6"
+	case 71:
+		key := "num7"
+	case 72:
+		key := "num8"
+	case 73:
+		key := "num9"
+	case 325:
+		key := "numlock"
+	case 309:
+		key := "num/"
+	case 55:
+		key := "num*"
+	case 74:
+		key := "num-"
+	case 78:
+		key := "num+"
+	case 83:
+		key := "num."
+	case 328:
+		key := "up"
+	case 336:
+		key := "down"
+	case 331:
+		key := "left"
+	case 333:
+		key := "right"
+	case 1:
+		key := "esc"
+	case 59:
+		key := "f1"
+	case 60:
+		key := "f2"
+	case 61:
+		key := "f3"
+	case 62:
+		key := "f4"
+	case 63:
+		key := "f5"
+	case 64:
+		key := "f6"
+	case 65:
+		key := "f7"
+	case 66:
+		key := "f8"
+	case 67:
+		key := "f9"
+	case 68:
+		key := "f10"
+	case 87:
+		key := "f11"
+	case 88:
+		key := "f12"
+	case 41:
+		key := "~"
+	case 2:
+		key := "1"
+	case 3:
+		key := "2"
+	case 4:
+		key := "3"
+	case 5:
+		key := "4"
+	case 6:
+		key := "5"
+	case 7:
+		key := "6"
+	case 8:
+		key := "7"
+	case 9:
+		key := "8"
+	case 10:
+		key := "9"
+	case 11:
+		key := "0"
+	case 12:
+		key := "-"
+	case 13:
+		key := "="
+	case 14:
+		key := "back"
+	case 15:
+		key := "tab"
+	case 16:
+		key := "q"
+	case 17:
+		key := "w"
+	case 18:
+		key := "e"
+	case 19:
+		key := "r"
+	case 20:
+		key := "t"
+	case 21:
+		key := "y"
+	case 22:
+		key := "u"
+	case 23:
+		key := "i"
+	case 24:
+		key := "o"
+	case 25:
+		key := "p"
+	case 26:
+		key := "["
+	case 27:
+		key := "]"
+	case 28:
+		key := "\"
+	case 29:
+		key := "lctrl"
+	case 30:
+		key := "a"
+	case 31:
+		key := "s"
+	case 32:
+		key := "d"
+	case 33:
+		key := "f"
+	case 34:
+		key := "g"
+	case 35:
+		key := "h"
+	case 36:
+		key := "j"
+	case 37:
+		key := "k"
+	case 38:
+		key := "l"
+	case 39:
+		key := ";"
+	case 40:
+		key := "'"
+	case 284:
+		key := "enter"
+	case 42:
+		key := "lshift"
+	case 44:
+		key := "z"
+	case 45:
+		key := "x"
+	case 46:
+		key := "c"
+	case 47:
+		key := "v"
+	case 48:
+		key := "b"
+	case 49:
+		key := "n"
+	case 50:
+		key := "m"
+	case 51:
+		key := ","
+	case 52:
+		key := "."
+	case 53:
+		key := "/"
+	case 310:
+		key := "rshift"
+	case 29:
+		key := "lctrl"
+	case 347:
+		key := "lwin"
+	case 56:
+		key := "lalt"
+	case 57:
+		key := "space"
+	case 312:
+		key := "ralt"
+	case 349:
+		key := "rmenu"
+	case 285:
+		key := "rctrl"
+	case 311:
+		key := "printscreen"
+	case 70:
+		key := "scrollock"
+	case 69:
+		key := "pause"
+	case 338:
+		key := "insert"
+	case 327:
+		key := "home"
+	case 329:
+		key := "pageup"
+	case 339:
+		key := "delete"
+	case 335:
+		key := "end"
+	case 337:
+		key := "pagedown"
+	}
+	ToolTip % key
+	SetTimer, RemoveToolTip, -600
+	return key
+}
+
+RemoveToolTip:
+	ToolTip
+

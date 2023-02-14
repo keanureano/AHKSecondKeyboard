@@ -1,9 +1,9 @@
 ﻿applyPreset(preset) {
+    BlockInput, On
+    BlockInput, MouseMove
     Coordmode, Pixel, Window
     Coordmode, Mouse, Window
     Coordmode, Caret, Window
-    BlockInput, On
-    BlockInput, MouseMove
     SetKeyDelay, 5
     SetMouseDelay, 5
 

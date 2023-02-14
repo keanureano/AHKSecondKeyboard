@@ -34,6 +34,8 @@ KeyEvent(code, state) {
             applyPreset("fastzoom120")
         case "num9":
             applyPreset("fastzoom130")
+        case "num0":
+            effectControls("selectMotion")
         }
     }
 }

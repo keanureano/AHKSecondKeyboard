@@ -18,20 +18,20 @@
     ; selects searchbox from effects panel
     focusPanel("effects")
     SendInput, ^!+f
-    SendInput, {BackSpace}
 
     ; waits for caret, max 1 second
     waitForCaret := 0
-    While (A_CaretX == "")
+    while (A_CaretX == "")
     {
         waitForCaret++
         Sleep, 5
-        If (waitForCaret > 200) {
+        if (waitForCaret > 200) {
             ExitApp
         }
     }
 
     ; moves mouse to caret, types preset
+    SendInput, {BackSpace}
     MouseMove, %A_CaretX%, %A_CaretY%
     SendInput, %preset%
 
@@ -63,4 +63,49 @@ focusPanel(panel){
     Case "project":
         Sendinput, ^!+1
     }
+}
+
+effectControls(setting) {
+    BlockInput, On
+    BlockInput, MouseMove
+    Coordmode, Pixel, Window
+    Coordmode, Mouse, Window
+    Coordmode, Caret, Window
+    SetKeyDelay, 5
+    SetMouseDelay, 5
+
+    ; saves starting mouse pos
+    MouseGetPos, StartX, StartY
+
+    ; stops timeline from playing
+    SendInput, ^!+k
+    SendInput, ^!+k
+
+    ; select effect controls
+    focusPanel("controls")
+    Send, {Tab}{Tab}{Left}
+
+    ; waits for caret, max 1 second
+    waitForCaret := 0
+    while (A_CaretX == "")
+    {
+        waitForCaret++
+        Sleep, 5
+        if (waitForCaret > 200) {
+            ExitApp
+        }
+    }
+    MouseMove, %A_CaretX%, %A_CaretY%
+
+    ; selectMotion
+    if (setting = "selectMotion") {
+        MouseClick, Left , -300, -10, , , , R
+    }
+
+    ; move back to starting mouse pos
+    MouseMove, StartX, StartY
+
+    ; reenable input
+    BlockInput, Off
+    BlockInput, MouseMoveOff
 }

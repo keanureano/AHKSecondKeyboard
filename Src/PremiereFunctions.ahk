@@ -14,6 +14,7 @@
     SendInput, ^!+k
     SendInput, ^!+k
     SendInput, {mButton}
+    Sleep, 5
 
     ; selects searchbox from effects panel
     focusPanel("effects")
@@ -26,7 +27,9 @@
         waitForCaret++
         Sleep, 5
         if (waitForCaret > 200) {
-            ExitApp
+            BlockInput, Off
+            BlockInput, MouseMoveOff
+            return
         }
     }
 
@@ -39,6 +42,7 @@
     MouseMove, 25, 75, , R
     MouseClickDrag, Left, , , %StartX%, %StartY%
     MouseClick, Middle
+    SendInput, ^!+l
 
     ; reenable input
     BlockInput, Off
@@ -50,18 +54,26 @@ focusPanel(panel){
     SendInput, ^!+7
     Switch panel
     {
-    Case "effects":
-        SendInput, ^!+7
-    Case "controls":
-        Sendinput, ^!+5
-    Case "timeline":
-        Sendinput, ^!+3
-    Case "program":
-        Sendinput, ^!+4
-    Case "source":
-        Sendinput, ^!+2
     Case "project":
         Sendinput, ^!+1
+    Case "source":
+        Sendinput, ^!+2
+    Case "timeline":
+        Sendinput, ^!+3
+    Case "monitor":
+        Sendinput, ^!+4
+    Case "controls":
+        Sendinput, ^!+5
+    Case "mixer":
+        Sendinput, ^!+6
+    Case "effects":
+        SendInput, ^!+7
+    Case "browser":
+        Sendinput, ^!+8
+    Case "graphics":
+        Sendinput, ^!+9
+    Case "captions":
+        Sendinput, ^!+0
     }
 }
 
@@ -83,7 +95,7 @@ effectControls(setting) {
 
     ; select effect controls
     focusPanel("controls")
-    Send, {Tab}{Tab}{Left}
+    SendInput, {Tab}{Tab}{Left}
 
     ; waits for caret, max 1 second
     waitForCaret := 0
@@ -92,13 +104,16 @@ effectControls(setting) {
         waitForCaret++
         Sleep, 5
         if (waitForCaret > 200) {
-            ExitApp
+            BlockInput, Off
+            BlockInput, MouseMoveOff
+            return
         }
     }
     MouseMove, %A_CaretX%, %A_CaretY%
 
     ; selectMotion
-    if (setting = "selectMotion") {
+    switch (setting) {
+    case "selectMotion":
         MouseClick, Left , -300, -10, , , , R
     }
 
@@ -108,4 +123,9 @@ effectControls(setting) {
     ; reenable input
     BlockInput, Off
     BlockInput, MouseMoveOff
+}
+
+muteProgram(program) {
+    Run, nircmd muteappvolume %program% 2
+    ToolTip, toggled volume %program%
 }
